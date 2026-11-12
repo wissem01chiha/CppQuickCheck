@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 project(CppQuickCheck)
-if(WIN32)
+if(MSVC)
     set(CMAKE_CXX_FLAGS "/W4 /permissive- /EHsc")
 else()
     set(CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11")
