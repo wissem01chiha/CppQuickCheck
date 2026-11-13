@@ -1,4 +1,9 @@
-***CppQuickCheck***
+CppQuickCheck
+===
+[![Build Status](https://app.travis-ci.com/wissem01chiha/CppQuickCheck.svg?token=FMqpuisXyW4zAo22qviF&branch=master)](https://app.travis-ci.com/wissem01chiha/CppQuickCheck)
+[![Coverage Status](https://coveralls.io/repos/github/wissem01chiha/CppQuickCheck/badge.svg?branch=master)](https://coveralls.io/github/wissem01chiha/CppQuickCheck?branch=master)
+![GitHub License](https://img.shields.io/github/license/wissem01chiha/CppQuickCheck)
+![GitHub Tag](https://img.shields.io/github/v/tag/wissem01chiha/CppQuickCheck)
 
 ## ABOUT
 
