@@ -1,5 +1,5 @@
 *~
-build
+build/
 
 CMakeCache.txt
 CMakeFiles/
@@ -7,15 +7,12 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 
-examples/sampleOutput
-examples/sampleShrinkOutput
-examples/testReverse
-examples/testReverseArray
-examples/testSort
-examples/testChooseGenerator
-examples/testSortCompact
-examples/exampleElementsGen
-examples/testSlowShrinking
-
+.venv/
 libcppqc.so
 all-catch-tests
+
+MODULE.bazel.lock
+bazel-bin
+bazel-CppQuickCheck
+bazel-out
+bazel-testlogs

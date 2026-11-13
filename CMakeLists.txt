@@ -1,50 +1,59 @@
-cmake_minimum_required(VERSION 2.6)
+#  Copyright (c) 2019, Gregory Rogers and Philipp Claßen
+#  All rights reserved.
+#
+#  Distributed under the MIT Software License. (See accompanying
+#  file LICENSE or copy at https://opensource.org/licenses/MIT)
+
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+
 project(CppQuickCheck)
+
+# genral configure options 
+option(CPPQC_USE_BOOST "Use Boost, allowing to build some of the examples." OFF)
+option(CPPQC_EXAMPLES "Enable building of example programs." OFF)
+option(CPPQC_TESTING "Enable building of test programs." ON)
+option(CPPQC_COVERAGE "Enable coverage reporting." OFF)
+option(CPPQC_CUSTOSM_TARGETS "" OFF)
+
 if(MSVC)
     set(CMAKE_CXX_FLAGS "/W4 /permissive- /EHsc")
 else()
     set(CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11")
 endif()
-
+if(CPPQC_COVERAGE AND NOT WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+endif()
 
 add_library(cppqc INTERFACE)
-target_include_directories(cppqc INTERFACE include/)
+target_include_directories(cppqc INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
-option(CPPQC_USE_BOOST "Use Boost, allowing to build some of the examples." OFF)
+enable_testing()
+
 if(CPPQC_USE_BOOST)
     find_package(Boost REQUIRED)
 endif()
 
-add_subdirectory(examples)
+# "catch" based unit tests
+if(CPPQC_TESTING)
+  add_subdirectory(test)
+endif()
+
+if(CPPQC_EXAMPLES)
+    add_subdirectory(examples)
+endif ()
+
+if(CPPQC_CUSTOSM_TARGETS)
+    # additional target to perform clang-format run, requires clang-format
+    file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
+
+    add_custom_target(
+            clangformat
+            COMMAND /usr/bin/clang-format
+            -style=file
+            -i
+            ${ALL_SOURCE_FILES}
+    )
+endif()
 
 install(DIRECTORY "include/" DESTINATION "include"
     PATTERN ".*" EXCLUDE)
-
-# "catch" based unit tests
-enable_testing()
-add_executable(
-  all-catch-tests
-  test/catch-main.cpp
-  test/arbitrary-tests.cpp
-  test/shrink-explosion-protection.cpp
-  test/compact-check-tests.cpp
-  test/functional-tests.cpp
-  )
-target_include_directories(all-catch-tests PRIVATE include/)
-add_test(all-catch-tests all-catch-tests)
-
-# workaround to force CMake to build test executable before running the test
-# (source: http://stackoverflow.com/a/736838/783510)
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND}
-                  DEPENDS all-catch-tests)
-
-# additional target to perform clang-format run, requires clang-format
-file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
-
-add_custom_target(
-        clangformat
-        COMMAND /usr/bin/clang-format
-        -style=file
-        -i
-        ${ALL_SOURCE_FILES}
-)

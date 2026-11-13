@@ -1,3 +1,9 @@
+#  Copyright (c) 2019, Gregory Rogers and Philipp Claßen
+#  All rights reserved.
+#
+#  Distributed under the MIT Software License. (See accompanying
+#  file LICENSE or copy at https://opensource.org/licenses/MIT)
+
 if(CPPQC_USE_BOOST)
     add_executable(sampleOutput src/sampleOutput.cpp)
     target_link_libraries(sampleOutput PRIVATE cppqc)

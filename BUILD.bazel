@@ -1,0 +1,92 @@
+#  Copyright (c) 2019, Gregory Rogers and Philipp Claßen
+#  All rights reserved.
+#
+#  Distributed under the MIT Software License. (See accompanying
+#  file LICENSE or copy at https://opensource.org/licenses/MIT)
+
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test", "cc_binary")
+
+cc_library(
+    name = "cppqc",
+    visibility = ["//visibility:public"],
+    hdrs = ["include/cppqc.h", 
+    "include/cppqc/Arbitrary.h",
+    "include/cppqc/CompactCheck.h",
+    "include/cppqc/Generator.h",
+    "include/cppqc/Property.h",
+    "include/cppqc/PrettyPrint.h",
+    "include/cppqc/Test.h",
+    "include/cppqc/cxx-prettyprint.h"]
+)
+
+cc_test(
+    name = "all-catch-tests",
+    srcs = ["test/arbitrary-tests.cpp", 
+    "test/compact-check-tests.cpp", 
+    "test/catch-main.cpp", 
+    "test/shrink-explosion-protection.cpp", 
+    "test/functional-tests.cpp",
+    "test/catch.hpp"],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
+
+cc_binary(
+    name = "TestReverse",
+    srcs = ["examples/src/TestReverse.cpp",
+],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
+
+cc_binary(
+    name = "TestReverseArray",
+    srcs = [
+        "examples/src/TestReverseArray.cpp",
+
+    ],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
+
+cc_binary(
+    name = "TestSlowShrinking",
+    srcs = ["examples/src/TestSlowShrinking.cpp"],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
+
+cc_binary(
+    name = "TestSort",
+    srcs = ["examples/src/TestSort.cpp"],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
+
+cc_binary(
+    name = "TestSortCompact",
+    srcs = ["examples/src/TestSortCompact.cpp"],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
+
+cc_binary(
+    name = "TestWithCustomGenerator",
+    srcs = ["examples/src/TestWithCustomGenerator.cpp"],
+    deps = [
+        ":cppqc",
+    ],
+    copts=["-Iinclude"]
+)
