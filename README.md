@@ -1,29 +1,23 @@
 CppQuickCheck
 ===
-[![Build Status](https://app.travis-ci.com/wissem01chiha/CppQuickCheck.svg?token=FMqpuisXyW4zAo22qviF&branch=master)](https://app.travis-ci.com/wissem01chiha/CppQuickCheck)
+
 [![Coverage Status](https://coveralls.io/repos/github/wissem01chiha/CppQuickCheck/badge.svg?branch=master)](https://coveralls.io/github/wissem01chiha/CppQuickCheck?branch=master)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/CppQuickCheck)
 ![GitHub Tag](https://img.shields.io/github/v/tag/wissem01chiha/CppQuickCheck)
 
-## ABOUT
+## About
 
-CppQuickCheck is a library for automated testing of C++ code. You provide a
-specification how your code is supposed to behave through *properties* and
-CppQuickCheck will generate a large number of random test cases that attempt to
-prove or disprove the properties. The specifications are written in pure C++
-using the functionality of the CppQuickCheck library.
+CppQuickCheck is a library for automated testing of C++ code. You provide a specification how your code is supposed to behave through *properties* and CppQuickCheck will generate a large number of random test cases that attempt to
+prove or disprove the properties. The specifications are written in pure C++ using the functionality of the CppQuickCheck library.
 
-## DOCUMENTATION
+## Documentation
 
 You can find examples in 'examples/src'.
 
-## BACKGROUND
+## Background
 
-CppQuickCheck is inspired and based on the
-[QuickCheck](https://github.com/nick8325/quickcheck) library for
-Haskell. CppQuickCheck differs in some aspects of the implementation and
-interface (as well as being written in C++ instead of Haskell), but tries to
-maintain similar functionality to the QuickCheck library.
+CppQuickCheck is inspired and based on the [QuickCheck](https://github.com/nick8325/quickcheck) library for
+Haskell. CppQuickCheck differs in some aspects of the implementation and interface (as well as being written in C++ instead of Haskell), but tries to maintain similar functionality to the QuickCheck library.
 
 A similar library for C++ exists called
 [QuickCheck++](http://software.legiasoft.com/quickcheck/). QuickCheck++ does
@@ -49,7 +43,7 @@ For these reasons, CppQuickCheck tries to maintain all the functionality of the
 Haskell QuickCheck, and so taking a different implementation approach than
 QuickCheck++.
 
-## UNIT TESTS
+## Unit tests
 
 Unit tests exists in the directory 'test'.
 
@@ -70,7 +64,7 @@ It uses the test framework
 [Catch2](https://github.com/catchorg/Catch2/tree/master/docs).
 Run `./all-catch-tests --help` to see the command line options.
 
-## CONTRIBUTING
+## Contributing
 
 Please direct your pull requests to https://github.com/philipp-classen/CppQuickCheck,
 which is the repository where the active development takes place.
@@ -102,6 +96,6 @@ exceptions like 3rd party libraries you can disable it like this:
 // clang-format on
 ```
 
-## LICENSE
+## License
 
 CppQuickCheck is distributed under a BSD license (see LICENSE).

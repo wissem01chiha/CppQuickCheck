@@ -8,12 +8,13 @@ cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
 
 project(CppQuickCheck)
 
-# genral configure options 
+# General configure options 
 option(CPPQC_USE_BOOST "Use Boost, allowing to build some of the examples." OFF)
 option(CPPQC_EXAMPLES "Enable building of example programs." OFF)
 option(CPPQC_TESTING "Enable building of test programs." ON)
 option(CPPQC_COVERAGE "Enable coverage reporting." OFF)
-option(CPPQC_CUSTOSM_TARGETS "" OFF)
+option(CPPQC_CUSTOSM_TARGETS "Enable building custom target" OFF)
+option(CPPQC_INSTALL "Enable install rules." OFF)
 
 if(MSVC)
     set(CMAKE_CXX_FLAGS "/W4 /permissive- /EHsc")
@@ -45,7 +46,6 @@ endif ()
 if(CPPQC_CUSTOSM_TARGETS)
     # additional target to perform clang-format run, requires clang-format
     file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
-
     add_custom_target(
             clangformat
             COMMAND /usr/bin/clang-format
@@ -55,5 +55,7 @@ if(CPPQC_CUSTOSM_TARGETS)
     )
 endif()
 
-install(DIRECTORY "include/" DESTINATION "include"
-    PATTERN ".*" EXCLUDE)
+if(CPPQC_INSTALL)
+    install(DIRECTORY "include/" DESTINATION "include"
+        PATTERN ".*" EXCLUDE)
+endif()

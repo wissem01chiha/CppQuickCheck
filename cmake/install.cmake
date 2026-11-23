@@ -1,0 +1,5 @@
+#  Copyright (c) 2019, Gregory Rogers and Philipp Claßen
+#  All rights reserved.
+#
+#  Distributed under the MIT Software License. (See accompanying
+#  file LICENSE or copy at https://opensource.org/licenses/MIT)
