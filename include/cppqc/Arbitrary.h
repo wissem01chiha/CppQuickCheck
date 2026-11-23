@@ -337,10 +337,10 @@ struct ArbitraryImpl<char> {
     std::vector<char> ret;
     constexpr char possShrinks[] = {'a', 'b', 'c', 'A', 'B',  'C',
                                     '1', '2', '3', ' ', '\n', '\0'};
-    for (auto possShrink : possShrinks) {
-      if (possShrink < c)
-        ret.push_back(possShrink);
-    }
+    std::copy_if(std::begin(possShrinks), std::end(possShrinks),
+                 std::back_inserter(ret),
+                 [c](char possShrink) { return possShrink < c; });
+
     if (isupper(c) &&
         std::find(possShrinks, possShrinks + sizeof(possShrinks), tolower(c)) ==
             possShrinks + sizeof(possShrinks)) {

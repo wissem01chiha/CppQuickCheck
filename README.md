@@ -1,6 +1,7 @@
 CppQuickCheck
 ===
 
+[![Bazel](https://github.com/wissem01chiha/CppQuickCheck/actions/workflows/bazel.yml/badge.svg)](https://github.com/wissem01chiha/CppQuickCheck/actions/workflows/bazel.yml)
 [![Coverage Status](https://coveralls.io/repos/github/wissem01chiha/CppQuickCheck/badge.svg?branch=master)](https://coveralls.io/github/wissem01chiha/CppQuickCheck?branch=master)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/CppQuickCheck)
 ![GitHub Tag](https://img.shields.io/github/v/tag/wissem01chiha/CppQuickCheck)

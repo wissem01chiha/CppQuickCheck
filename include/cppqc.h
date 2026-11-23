@@ -32,4 +32,4 @@
 #include "cppqc/Property.h"
 #include "cppqc/Test.h"
 
-#endif // CPPQC_H
+#endif  // CPPQC_H
