@@ -5,6 +5,9 @@ CppQuickCheck
 [![Coverage Status](https://coveralls.io/repos/github/wissem01chiha/CppQuickCheck/badge.svg?branch=master)](https://coveralls.io/github/wissem01chiha/CppQuickCheck?branch=master)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/CppQuickCheck)
 ![GitHub Tag](https://img.shields.io/github/v/tag/wissem01chiha/CppQuickCheck)
+![Coverity Scan](https://img.shields.io/coverity/scan/33404)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wissem01chiha/CppQuickCheck/master.svg)](https://results.pre-commit.ci/latest/github/wissem01chiha/CppQuickCheck/master)
+
 
 ## About
 
